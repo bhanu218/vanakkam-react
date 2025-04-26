@@ -1,0 +1,29 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "this is vanakkam react by bhanu teja",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhanu218/vanakkam-react.git"
+  },
+  "keywords": [],
+  "author": "bhanu teja",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bhanu218/vanakkam-react/issues"
+  },
+  "homepage": "https://github.com/bhanu218/vanakkam-react#readme",
+  "devDependencies": {
+    "parcel": "^2.14.4"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "browserlist":[
+    "last 2 versions"
+  ]
+}

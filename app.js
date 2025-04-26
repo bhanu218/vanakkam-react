@@ -1,14 +1,6 @@
 
-/**
- * <div id="parent">
- *      <div id="child">
- *              <h1>this is h1 tag</h1>
- *              <h1> this is h2 tag</h1>
- *      </div>
- * </div>
- * 
- */
-
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 const parent= React.createElement(
     "div",{id:"parent"},
@@ -25,15 +17,6 @@ const parent= React.createElement(
 ]
 );
 
-
-
-
-// const heading = React.createElement(
-//     "h1",
-//     {id:"heading"},
-//     "hello React world"
-// );
-        
 const root =ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(parent);
