@@ -1,27 +1,34 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import FoodLogo from './assets/Food-Logo.png';
 
-const userapi = "https://jsonplaceholder.typicode.com/users/1";
+const Header=()=>{
+    return(
+        <div className='header'>
+            <div className='logo-container'>
+                <img className='logo' src={FoodLogo}></img>
+            </div>
+            <div className='nav-iteams'>
+                <ul>
+                    <li>Home</li>
+                    <li>About Us</li>
+                    <li>Contact Us</li>
+                    <li>Cart</li>
 
-const user = fetch(userapi)
-    .then(response => response.json())
-    .then(data =>{ console.log(data); return data; })
-    .then( collectedData => {console.log(collectedData.name)    ; return collectedData.name;})
-    .catch(error => console.error('Error fetching user:', error));
+                </ul>
+                
+            </div>
+        </div>
+    )
+};
 
-
-const elem=<h1 id='elem
-'>this is element heading</h1>;
-   
-const App = () => (
-    <div className="app">
-        <h1>Hello {user}</h1>
-        {elem}
-        <p>This is a simple React application.</p>
-    </div>
-);
-
-
+const AppLayout=()=>{
+    return(
+        <div className='app-layout'>
+            <Header/>
+        </div>
+    )
+};
 const root=ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App></App>);
+root.render(<AppLayout/>);
