@@ -67,7 +67,7 @@ flex-wrap: wrap;
   .shimmer-container{
     display: flex;
     flex-wrap: wrap;
-    
+
   }
 
 
@@ -76,5 +76,14 @@ flex-wrap: wrap;
     height: 400px;
     background-color: #f0f0f0;
     margin: 5px;
+
+  }
+
+  .btn-login{
+    background-color: antiquewhite;
+    width: auto;
+    margin: auto;
+    padding: auto;
+    cursor: pointer;
 
   }
