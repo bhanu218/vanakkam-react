@@ -87,3 +87,19 @@ flex-wrap: wrap;
     cursor: pointer;
 
   }
+
+
+.user-card{
+    width: 200px;
+    height: auto;
+    border-radius: 3vh;
+    border: black 1px solid;
+    
+    background-color: #f0f0f0;
+    margin: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+   
+}

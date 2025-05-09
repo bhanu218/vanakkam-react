@@ -1,11 +1,33 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 
 const Header=()=>{
     const [btnName, setBtnName] =useState("Login");
-    
+
+    const [OnlineStatus, setOnlineStatus] = useState(true);
+    useEffect(()=>{
+        window.addEventListener("online", () => {
+            setOnlineStatus(true);
+        });
+        window.addEventListener("offline", () => {
+            setOnlineStatus(false);
+
+        });
+
+        return () => {
+            window.removeEventListener("online", () => {
+                setOnlineStatus(true);
+            });
+            window.removeEventListener("offline", () => {
+                setOnlineStatus(false);
+            });
+        };
+
+
+    }, []);
+
     return(
         <div className='header'>
             <div className='logo-container'>
@@ -13,7 +35,8 @@ const Header=()=>{
             </div>
             <div className='nav-items'>
                 <ul>
-                    <li>Home</li>
+                    <li>{OnlineStatus? "Online":"offline"} </li>
+                    
                     <li>
                         <Link to="/about">About Us</Link>
                     </li>

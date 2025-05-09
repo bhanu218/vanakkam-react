@@ -10,6 +10,7 @@ const Body=()=>{
     const [FilteredRestaurant, setFilteredRestaurant]=useState([]);
     const [searchText, setSearchText]=useState("");
 
+    
 
     useEffect(()=>{
         fetchData();
@@ -17,7 +18,8 @@ const Body=()=>{
 
     const fetchData = async ()=>{
     const data= await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.331501446495793&lng=78.57271369546652&collection=83649&tags=layout_CCS_Biryani&sortBy=&filters=&type=rcv2&offset=0&page_type=null");
-    const json=await data.json();
+    const json= await data.json();
+    
     console.log(json);
     setRestaurantlist( json?.data?.cards?.filter(
         (card) =>
@@ -54,7 +56,11 @@ const Body=()=>{
             }}>top rated restaurants </button>
            </div> 
            <div className='res-container'>
-           {FilteredRestaurant.map((res)=> (<Link key={res.id} to={"/restaurant/" + res.id}><RestaurantCard  resObj={res}/></Link>))};
+           {FilteredRestaurant.map((res)=> (
+            <Link key={res.id} to={"/restaurant/" + res.id}><RestaurantCard  resObj={res}/>
+            </Link>
+          ))
+          };
            
            </div>
        </div>
