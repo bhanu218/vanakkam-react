@@ -2,6 +2,7 @@ import { useEffect,useState } from "react";
 import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import  useResDetails  from "../utils/useResDetails"; // Custom hook to fetch restaurant details
+import RestaurantCategory from "./RestaurantCategory";
 
 
 
@@ -12,22 +13,27 @@ const RestaurantMenu = () => {
 
     const itemDetails= useResDetails(resId); // State to hold item details
     
-    if (!itemDetails?.name) {
-        return <Shimmer />;
-      }
-    
+  
+
 
     return (
-        <div className="restaurant-menu">
-            <h1>Restaurant Menu</h1>
-            <h2>Menu will be displayed here</h2>
-            <ul>
-                <li>{itemDetails.name}-{itemDetails.costForTwoMessage}</li>
-                <li> {itemDetails.cuisines.join(", ")} </li>
-                <li>{itemDetails.avgRating}</li>
-            </ul>
-            
+         
+        <div className="flex justify-center bg-white ">
+            <div className="text-center m-2 p-4 w-8/12 h-auto bg-gray-100 shadow-lg rounded-lg">
+                <h2 className="font-bold">Restaurant Menu:</h2>
+
+                {Array.isArray(itemDetails) ? (
+                itemDetails.map((item) => (
+                    <RestaurantCategory
+                    key={item?.card?.card?.title}
+                    item={item?.card?.card}
+                    />
+                ))
+                ) : (
+                <p>Loading menu...</p>
+                )}
             </div>
+        </div>
 
     );
 };

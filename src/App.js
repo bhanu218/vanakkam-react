@@ -11,6 +11,9 @@ import Error from './components/Error';
 import RestaurantMenu from './components/RestaurantMenu';
 
 
+const Grocery = React.lazy(() => import('./components/Grocery'));
+
+
 function AppLayout() {
     return (
         <div className='app-layout'>
@@ -42,6 +45,10 @@ const appRouter= createBrowserRouter(
                 {
                     path:"/restaurant/:resId",
                     element:<RestaurantMenu/>
+                },
+                {
+                    path:"/grocery",
+                    element:<Grocery/>
                 }
             ],
             errorElement:<Error/>,  

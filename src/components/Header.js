@@ -8,6 +8,7 @@ const Header=()=>{
 
     const [OnlineStatus, setOnlineStatus] = useState(true);
     useEffect(()=>{
+       
         window.addEventListener("online", () => {
             setOnlineStatus(true);
         });
@@ -26,19 +27,22 @@ const Header=()=>{
         };
 
 
-    }, []);
+    }, [OnlineStatus]);
 
     return(
-        <div className='header'>
-            <div className='logo-container'>
-                <img className="logo" src={LOGO_URL} alt="Food Logo" />
+        <div className='flex justify-between bg-pink-100 shadow-lg mx-2 p-2'>
+            <div className='logo-container' >
+                <img className="w-[4rem] h-[3rem]" src={LOGO_URL} alt="Food Logo" />
             </div>
             <div className='nav-items'>
-                <ul>
-                    <li>{OnlineStatus? "Online":"offline"} </li>
+                <ul className="flex p-2 space-x-4 ">   
+                    <li className={`font-mono ${OnlineStatus ? "text-green-500" : "text-red-500"}`}> {OnlineStatus? "Online"  :"Offline"} </li>
                     
                     <li>
                         <Link to="/about">About Us</Link>
+                    </li>
+                    <li>
+                        <Link to="/grocery">Grocery </Link>
                     </li>
                     <li>
                         <Link to="/contact">Contact Us</Link>
