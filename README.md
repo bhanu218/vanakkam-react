@@ -55,3 +55,17 @@ vanakkam React "hip hip hurray"
 (noraml js utility functions)
 -useState()->superpowerful state variable in react
 -useEffect()
+-useContext()
+
+
+//routing
+-client side routing ->without loading full html page just url components 
+-server side routing ->loading full html
+
+//redux Toolkit(RTK)
+-Install @reduxjs/toolkit and react-redux
+-Build Our Store
+-Connect our store to our app
+-slice (cart slice)
+-dispatch(action)
+-selector

@@ -1,17 +1,27 @@
 import ItemList from "./ItemList";  
+import { useState } from "react";
 
-const RestaurantCategory = (props)=>{
-    const {title,categories}= props.item; // Destructure the card object from props
-    console.log(props);
+
+const RestaurantCategory = ({item,showItems,setShowIndex})=>{
+    const {title,categories}= item; // Destructure the card object from props
+    
+
+   
+
+    const handleClick=()=>{
+        
+       setShowIndex();
+      
+    }
     return(
         <div >
             <div className="  w-auto p-2 m-4 bg-slate-100 shadow-lg  rounded-lg ">
                 
-                <div className="flex justify-between items-center ">
+                <div className="flex justify-between items-center hover:cursor-pointer" onClick={handleClick}>
                     <span className="font-bold">{title} [{categories.length}]</span>
                     <span >⬇️</span>
                 </div>
-                     <ItemList  item={props.item}/>
+                    { showItems && <ItemList  item={item}/>}
                 
             </div>
    

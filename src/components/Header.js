@@ -1,10 +1,15 @@
 
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
+import UserContext from "../utils/UserContext";
+
 
 const Header=()=>{
     const [btnName, setBtnName] =useState("Login");
+
+    const {loggedInUser}= useContext(UserContext);
+    console.log();
 
     const [OnlineStatus, setOnlineStatus] = useState(true);
     useEffect(()=>{
@@ -32,10 +37,13 @@ const Header=()=>{
     return(
         <div className='flex justify-between bg-pink-100 shadow-lg mx-2 p-2'>
             <div className='logo-container' >
-                <img className="w-[4rem] h-[3rem]" src={LOGO_URL} alt="Food Logo" />
+                <Link to="/">                 
+                    <img className="w-[4rem] h-[3rem]" src={LOGO_URL} alt="Food Logo" />
+                </Link>
             </div>
             <div className='nav-items'>
-                <ul className="flex p-2 space-x-4 ">   
+                <ul className="flex p-2 space-x-4 ">  
+
                     <li className={`font-mono ${OnlineStatus ? "text-green-500" : "text-red-500"}`}> {OnlineStatus? "Online"  :"Offline"} </li>
                     
                     <li>
@@ -49,6 +57,9 @@ const Header=()=>{
                     </li>
                     <li>Cart</li>
                     <button className="btn-login" onClick={()=> btnName==="Login"?setBtnName("Logout"):setBtnName("Login")}>{btnName}</button>
+
+                    
+                    <li className="font-semibold" >{loggedInUser}</li>
 
                 </ul>
                 

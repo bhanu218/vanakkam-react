@@ -13,6 +13,7 @@ const RestaurantMenu = () => {
 
     const itemDetails= useResDetails(resId); // State to hold item details
     
+    const [showIndex,setShowIndex]=useState(null);
   
 
 
@@ -23,11 +24,14 @@ const RestaurantMenu = () => {
                 <h2 className="font-bold">Restaurant Menu:</h2>
 
                 {Array.isArray(itemDetails) ? (
-                itemDetails.map((item) => (
+                itemDetails.map((item,index) => (
                     <RestaurantCategory
                     key={item?.card?.card?.title}
                     item={item?.card?.card}
+                    showItems={index===showIndex ?true:false}
+                    setShowIndex={()=>setShowIndex(index)}
                     />
+                    
                 ))
                 ) : (
                 <p>Loading menu...</p>
